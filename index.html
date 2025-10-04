@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NexRNN Technologies - Digital Marketing Agency in Lucknow</title>
     
+    <!-- Favicon -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>N</text></svg>">
+
     <!-- SEO Meta Tags -->
     <meta name="description" content="NexRNN Technologies is a top Digital Marketing Agency in Lucknow, providing end-to-end solutions like SEO, SMM, and Web Development to transform offline businesses into strong online brands.">
     <meta name="keywords" content="Digital Marketing, Lucknow, SEO Agency, Social Media Marketing, Website Development, Branding, Online Marketing">
@@ -25,8 +28,27 @@
     <meta property="twitter:description" content="We help Lucknow businesses grow online with expert SEO, Social Media, and Web Development services. Turn clicks into clients.">
     <meta property="twitter:image" content="https://placehold.co/1200x630/2563eb/ffffff?text=NexRNN+Technologies">
 
+    <!-- Google Analytics (GA4) - Replace G-XXXXXXXXXX with your Measurement ID -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-XXXXXXXXXX');
+    </script>
+    
+    <!--
+      NOTE ON SPF RECORDS:
+      An SPF (Sender Policy Framework) record is a DNS setting, not something that can be added to your website's HTML. 
+      To set it up, you need to go to your domain registrar (like GoDaddy, Namecheap, etc.) and add a TXT record to your DNS settings.
+      A basic SPF record looks like this:
+      v=spf1 mx -all
+      This tells mail servers that only servers listed as your domain's MX (mail exchange) records are allowed to send email on your behalf.
+      Consult your email provider's documentation for the exact SPF record you should use.
+    -->
+
     <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.tailwindcss.com" defer></script>
 
     <!-- Google Fonts: Inter -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -283,6 +305,20 @@
             </div>
         </section>
 
+        <!-- Featured In Section -->
+        <section id="featured" class="py-20 md:py-28 section-fade-in">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="text-center text-xl font-semibold text-slate-500 mb-10">Trusted by Businesses & Featured In</h2>
+                <div class="flex flex-wrap justify-center items-center gap-x-12 gap-y-8">
+                    <a href="#" target="_blank" rel="noopener noreferrer" class="opacity-60 hover:opacity-100 transition"><img class="h-8" src="https://placehold.co/150x40/cbd5e1/475569?text=Partner+1" alt="Partner 1"></a>
+                    <a href="#" target="_blank" rel="noopener noreferrer" class="opacity-60 hover:opacity-100 transition"><img class="h-8" src="https://placehold.co/150x40/cbd5e1/475569?text=Featured+In" alt="Featured In"></a>
+                    <a href="#" target="_blank" rel="noopener noreferrer" class="opacity-60 hover:opacity-100 transition"><img class="h-8" src="https://placehold.co/150x40/cbd5e1/475569?text=Partner+2" alt="Partner 2"></a>
+                    <a href="#" target="_blank" rel="noopener noreferrer" class="opacity-60 hover:opacity-100 transition"><img class="h-8" src="https://placehold.co/150x40/cbd5e1/475569?text=Publication" alt="Publication"></a>
+                    <a href="#" target="_blank" rel="noopener noreferrer" class="opacity-60 hover:opacity-100 transition"><img class="h-8" src="https://placehold.co/150x40/cbd5e1/475569?text=Partner+3" alt="Partner 3"></a>
+                </div>
+            </div>
+        </section>
+
         <!-- Contact Section -->
         <section id="contact" class="py-20 md:py-28 section-fade-in">
              <div class="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -401,7 +437,10 @@
         });
         function initIcons() { if (typeof lucide !== 'undefined') { lucide.createIcons(); } }
     </script>
-    <script src="https://unpkg.com/lucide-icons@latest/dist/lucide.min.js" onload="initIcons()"></script>
+    <script src="https://unpkg.com/lucide-icons@latest/dist/lucide.min.js" defer onload="initIcons()"></script>
+    <!-- Go to www.addthis.com/dashboard to customize your tools -->
+    <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-635b95d1fab3a345" async="async"></script>
+
 </body>
 </html>
 
