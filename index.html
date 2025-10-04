@@ -49,6 +49,19 @@
         .social-icon-hover:hover { transform: scale(1.1); }
         .modal-content { animation: modal-scale-in 0.3s ease-out; }
         @keyframes modal-scale-in { from { opacity: 0; transform: scale(0.95); } to { opacity: 1; transform: scale(1); } }
+        
+        /* FAQ Accordion Styles */
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease-in-out;
+        }
+        .faq-icon {
+            transition: transform 0.3s ease;
+        }
+        .faq-question.open .faq-icon {
+            transform: rotate(180deg);
+        }
     </style>
     
     <!-- JSON-LD Structured Data -->
@@ -59,7 +72,7 @@
 <body class="text-slate-700">
 
     <!-- Fixed Social Icons (Left) -->
-    <div class="hidden md:flex flex-col gap-4 fixed left-6 top-1/2 -translate-y-1/2 z-40">
+    <div class="hidden md:flex flex-col gap-4 fixed left-4 lg:left-6 top-1/2 -translate-y-1/2 z-40">
         <a href="https://wa.me/911234567890" target="_blank" aria-label="Chat on WhatsApp" class="bg-white p-3 rounded-full shadow-lg social-icon-hover"><svg class="w-6 h-6 text-green-500" viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91C2.13 13.66 2.59 15.31 3.4 16.78L2.05 22L7.31 20.65C8.75 21.41 10.35 21.82 12.04 21.82C17.5 21.82 21.95 17.37 21.95 11.91C21.95 9.27 20.92 6.83 19.05 4.96C17.18 3.09 14.74 2 12.04 2ZM16.57 14.83C16.37 15.29 15.26 15.86 14.81 16.05C14.36 16.24 13.79 16.32 13.4 16.17C13.01 16.02 12.07 15.68 11.02 14.75C9.72 13.6 9.06 12.23 8.87 11.98C8.68 11.73 8.52 11.53 8.52 11.23C8.52 10.93 8.64 10.78 8.81 10.61C8.98 10.44 9.17 10.24 9.35 10.06C9.53 9.88 9.59 9.77 9.71 9.53C9.83 9.29 9.77 9.1 9.68 8.92C9.59 8.74 9.11 7.55 8.92 7.1C8.73 6.65 8.53 6.71 8.38 6.71C8.24 6.71 8.01 6.77 7.8 6.77C7.59 6.77 7.29 6.86 7.03 7.14C6.77 7.42 6.12 8.01 6.12 9.2C6.12 10.39 7.06 11.52 7.21 11.71C7.36 11.9 9.01 14.43 11.48 15.44C12.06 15.68 12.5 15.83 12.85 15.93C13.43 16.1 13.99 16.05 14.4 15.88C14.88 15.68 15.92 15.06 16.16 14.45C16.4 13.84 16.4 13.33 16.32 13.18C16.24 13.03 16.12 12.94 15.92 12.85C15.72 12.76 15.15 12.48 14.9 12.37C14.65 12.26 14.49 12.22 14.34 12.46C14.19 12.7 13.86 13.12 13.74 13.27C13.62 13.42 13.51 13.47 13.31 13.38C13.11 13.29 12.42 13.04 11.61 12.3C11.01 11.74 10.59 11.07 10.45 10.83C10.31 10.59 10.43 10.46 10.56 10.33C10.68 10.2 10.82 10.04 10.96 9.89C11.1 9.74 11.16 9.64 11.25 9.45C11.34 9.26 11.28 9.09 11.23 8.98C11.18 8.87 10.65 7.67 10.46 7.22C10.27 6.77 10.08 6.83 9.93 6.83L9.93 6.83Z"/></svg></a>
         <a href="#" aria-label="Instagram" class="bg-white p-3 rounded-full shadow-lg social-icon-hover flex items-center justify-center"><svg class="w-6 h-6" fill="none" viewBox="0 0 24 24"><defs><radialGradient id="instagram-gradient" cx="0.3" cy="1.2" r="1.2"><stop offset="0" stop-color="#F58529"></stop><stop offset="0.25" stop-color="#DD2A7B"></stop><stop offset="0.75" stop-color="#8134AF"></stop><stop offset="1" stop-color="#515BD4"></stop></radialGradient></defs><rect width="24" height="24" rx="6" fill="url(#instagram-gradient)"></rect><path fill-rule="evenodd" clip-rule="evenodd" d="M12 18C15.3137 18 18 15.3137 18 12C18 8.68629 15.3137 6 12 6C8.68629 6 6 8.68629 6 12C6 15.3137 8.68629 18 12 18ZM12 16C14.2091 16 16 14.2091 16 12C16 9.79086 14.2091 8 12 8C9.79086 8 8 9.79086 8 12C8 14.2091 9.79086 16 12 16Z" fill="white"></path><path fill-rule="evenodd" clip-rule="evenodd" d="M18.0002 6.81818C18.4526 6.81818 18.8184 6.45242 18.8184 6C18.8184 5.54758 18.4526 5.18182 18.0002 5.18182C17.5478 5.18182 17.182 5.54758 17.182 6C17.182 6.45242 17.5478 6.81818 18.0002 6.81818Z" fill="white"></path></svg></a>
         <a href="#" aria-label="X/Twitter" class="bg-white p-3 rounded-full shadow-lg social-icon-hover flex items-center justify-center"><svg class="w-6 h-6 text-black" fill="currentColor" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"></path></svg></a>
@@ -128,24 +141,45 @@
         <section id="growth" class="py-20 md:py-28 bg-white section-fade-in">
             <div class="container mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center mb-16"><h2 class="text-3xl md:text-4xl font-bold text-slate-900">Our Proven Path to Digital Success</h2><p class="mt-4 max-w-2xl mx-auto text-slate-600">We follow a structured, strategic flow to transform your business into an online powerhouse.</p></div>
-                <div class="relative wrap overflow-hidden p-10 h-full">
-                    <div class="absolute border-opacity-20 border-slate-700 h-full border" style="left: 50%"></div>
-                    <div class="mb-8 flex justify-between items-center w-full right-timeline"><div class="order-1 w-5/12"></div><div class="z-20 flex items-center order-1 bg-blue-600 shadow-xl w-12 h-12 rounded-full text-white"><i data-lucide="compass" class="mx-auto"></i></div><div class="order-1 bg-white rounded-lg shadow-xl w-5/12 px-6 py-4 card-hover-effect"><h3 class="font-bold text-slate-900 text-xl">1. Strategy & Branding</h3><p class="text-sm leading-snug tracking-wide text-slate-600 mt-2">First, we listen. We define your brand's unique story and create a powerful identity that connects instantly with your target audience.</p></div></div>
-                    <div class="mb-8 flex justify-between flex-row-reverse items-center w-full left-timeline"><div class="order-1 w-5/12"></div><div class="z-20 flex items-center order-1 bg-blue-600 shadow-xl w-12 h-12 rounded-full text-white"><i data-lucide="monitor-smartphone" class="mx-auto"></i></div><div class="order-1 bg-white rounded-lg shadow-xl w-5/12 px-6 py-4 card-hover-effect"><h3 class="font-bold text-slate-900 text-xl">2. Launch Your Digital Hub</h3><p class="text-sm leading-snug tracking-wide text-slate-600 mt-2">Your website is your digital headquarters. We build a fast, secure, and conversion-focused site that turns visitors into loyal customers.</p></div></div>
-                    <div class="mb-8 flex justify-between items-center w-full right-timeline"><div class="order-1 w-5/12"></div><div class="z-20 flex items-center order-1 bg-blue-600 shadow-xl w-12 h-12 rounded-full text-white"><i data-lucide="users" class="mx-auto"></i></div><div class="order-1 bg-white rounded-lg shadow-xl w-5/12 px-6 py-4 card-hover-effect"><h3 class="font-bold text-slate-900 text-xl">3. Build & Engage Your Audience</h3><p class="text-sm leading-snug tracking-wide text-slate-600 mt-2">We establish a commanding presence on the right social platforms, creating a vibrant community and engaging your customers.</p></div></div>
-                    <div class="mb-8 flex justify-between flex-row-reverse items-center w-full left-timeline"><div class="order-1 w-5/12"></div><div class="z-20 flex items-center order-1 bg-blue-600 shadow-xl w-12 h-12 rounded-full text-white"><i data-lucide="target" class="mx-auto"></i></div><div class="order-1 bg-white rounded-lg shadow-xl w-5/12 px-6 py-4 card-hover-effect"><h3 class="font-bold text-slate-900 text-xl">4. Drive Targeted Traffic</h3><p class="text-sm leading-snug tracking-wide text-slate-600 mt-2">Fuel your growth with strategic content and precision-targeted ad campaigns that attract, educate, and convert your ideal customers.</p></div></div>
-                    <div class="mb-8 flex justify-between items-center w-full right-timeline"><div class="order-1 w-5/12"></div><div class="z-20 flex items-center order-1 bg-green-600 shadow-xl w-12 h-12 rounded-full text-white"><i data-lucide="trending-up" class="mx-auto"></i></div><div class="order-1 bg-white rounded-lg shadow-xl w-5/12 px-6 py-4 card-hover-effect"><h3 class="font-bold text-slate-900 text-xl">5. Optimize & Scale</h3><p class="text-sm leading-snug tracking-wide text-slate-600 mt-2">Growth is a journey. We use data analytics and continuous optimization to scale your marketing, maximize ROI, and ensure market presence.</p></div></div>
+                <div class="relative wrap overflow-hidden p-2 md:p-10 h-full">
+                    <div class="absolute border-opacity-20 border-slate-300 h-full border-2 left-6 md:left-1/2"></div>
+                    <!-- Timeline Items -->
+                    <div class="mb-8 flex md:justify-between items-center w-full md:right-timeline flex-row-reverse md:flex-row">
+                        <div class="order-1 w-5/12 hidden md:block"></div>
+                        <div class="z-20 flex items-center order-1 bg-blue-600 shadow-xl w-10 h-10 md:w-12 md:h-12 rounded-full text-white"><i data-lucide="compass" class="mx-auto w-5 h-5 md:w-6 md:h-6"></i></div>
+                        <div class="order-1 bg-white rounded-lg shadow-xl w-full md:w-5/12 px-6 py-4 card-hover-effect ml-4 md:ml-0"><h3 class="font-bold text-slate-900 text-lg md:text-xl">1. Strategy & Branding</h3><p class="text-sm leading-snug tracking-wide text-slate-600 mt-2">First, we listen. We define your brand's unique story and create a powerful identity that connects instantly with your target audience.</p></div>
+                    </div>
+                    <div class="mb-8 flex md:justify-between flex-row-reverse items-center w-full md:left-timeline">
+                        <div class="order-1 w-5/12 hidden md:block"></div>
+                        <div class="z-20 flex items-center order-1 bg-blue-600 shadow-xl w-10 h-10 md:w-12 md:h-12 rounded-full text-white"><i data-lucide="monitor-smartphone" class="mx-auto w-5 h-5 md:w-6 md:h-6"></i></div>
+                        <div class="order-1 bg-white rounded-lg shadow-xl w-full md:w-5/12 px-6 py-4 card-hover-effect mr-4 md:mr-0"><h3 class="font-bold text-slate-900 text-lg md:text-xl">2. Launch Your Digital Hub</h3><p class="text-sm leading-snug tracking-wide text-slate-600 mt-2">Your website is your digital headquarters. We build a fast, secure, and conversion-focused site that turns visitors into loyal customers.</p></div>
+                    </div>
+                    <div class="mb-8 flex md:justify-between items-center w-full md:right-timeline flex-row-reverse md:flex-row">
+                        <div class="order-1 w-5/12 hidden md:block"></div>
+                        <div class="z-20 flex items-center order-1 bg-blue-600 shadow-xl w-10 h-10 md:w-12 md:h-12 rounded-full text-white"><i data-lucide="users" class="mx-auto w-5 h-5 md:w-6 md:h-6"></i></div>
+                        <div class="order-1 bg-white rounded-lg shadow-xl w-full md:w-5/12 px-6 py-4 card-hover-effect ml-4 md:ml-0"><h3 class="font-bold text-slate-900 text-lg md:text-xl">3. Build & Engage Your Audience</h3><p class="text-sm leading-snug tracking-wide text-slate-600 mt-2">We establish a commanding presence on the right social platforms, creating a vibrant community and engaging your customers.</p></div>
+                    </div>
+                    <div class="mb-8 flex md:justify-between flex-row-reverse items-center w-full md:left-timeline">
+                        <div class="order-1 w-5/12 hidden md:block"></div>
+                        <div class="z-20 flex items-center order-1 bg-blue-600 shadow-xl w-10 h-10 md:w-12 md:h-12 rounded-full text-white"><i data-lucide="target" class="mx-auto w-5 h-5 md:w-6 md:h-6"></i></div>
+                        <div class="order-1 bg-white rounded-lg shadow-xl w-full md:w-5/12 px-6 py-4 card-hover-effect mr-4 md:mr-0"><h3 class="font-bold text-slate-900 text-lg md:text-xl">4. Drive Targeted Traffic</h3><p class="text-sm leading-snug tracking-wide text-slate-600 mt-2">Fuel your growth with strategic content and precision-targeted ad campaigns that attract, educate, and convert your ideal customers.</p></div>
+                    </div>
+                    <div class="mb-8 flex md:justify-between items-center w-full md:right-timeline flex-row-reverse md:flex-row">
+                        <div class="order-1 w-5/12 hidden md:block"></div>
+                        <div class="z-20 flex items-center order-1 bg-green-600 shadow-xl w-10 h-10 md:w-12 md:h-12 rounded-full text-white"><i data-lucide="trending-up" class="mx-auto w-5 h-5 md:w-6 md:h-6"></i></div>
+                        <div class="order-1 bg-white rounded-lg shadow-xl w-full md:w-5/12 px-6 py-4 card-hover-effect ml-4 md:ml-0"><h3 class="font-bold text-slate-900 text-lg md:text-xl">5. Optimize & Scale</h3><p class="text-sm leading-snug tracking-wide text-slate-600 mt-2">Growth is a journey. We use data analytics and continuous optimization to scale your marketing, maximize ROI, and ensure market presence.</p></div>
+                    </div>
                 </div>
             </div>
         </section>
 
         <!-- Portfolio Section -->
         <section id="portfolio" class="py-20 md:py-28 section-fade-in">
-            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+             <div class="container mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center mb-16"><h2 class="text-3xl md:text-4xl font-bold text-slate-900">Results That Speak Volumes</h2><p class="mt-4 max-w-2xl mx-auto text-slate-600">We're proud to have partnered with fantastic businesses to achieve real, measurable growth.</p></div>
-                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-                    <div class="bg-white p-8 rounded-xl shadow-lg card-hover-effect"><img src="https://placehold.co/600x400/e2e8f0/334155?text=Client+Website+Before" alt="Screenshot of a client's website before our redesign" class="rounded-lg mb-4"><img src="https://placehold.co/600x400/38bdf8/ffffff?text=Client+Website+After" alt="Screenshot of the redesigned, modern client website" class="rounded-lg"></div>
-                    <div><span class="text-blue-600 font-semibold">LOCAL RESTAURANT CHAIN</span><h3 class="text-2xl font-bold text-slate-900 mt-2 mb-4">Website Overhaul & Local SEO Domination</h3><p class="text-slate-600 mb-6">We transformed a dated site into a sleek, mobile-first experience and implemented a hyper-local SEO strategy. The result: a 200% surge in online bookings and a 70% flood of new, organic traffic in 90 days.</p><div class="flex space-x-8"><div><p class="text-3xl font-bold text-gradient">+200%</p><p class="text-sm text-slate-500">Online Reservations</p></div><div><p class="text-3xl font-bold text-gradient">+70%</p><p class="text-sm text-slate-500">Organic Traffic</p></div></div></div>
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 items-center">
+                    <div class="bg-white p-4 sm:p-8 rounded-xl shadow-lg card-hover-effect"><img src="https://placehold.co/600x400/e2e8f0/334155?text=Client+Website+Before" alt="Screenshot of a client's website before our redesign" class="rounded-lg mb-4"><img src="https://placehold.co/600x400/38bdf8/ffffff?text=Client+Website+After" alt="Screenshot of the redesigned, modern client website" class="rounded-lg"></div>
+                    <div class="text-center lg:text-left"><span class="text-blue-600 font-semibold">LOCAL RESTAURANT CHAIN</span><h3 class="text-2xl font-bold text-slate-900 mt-2 mb-4">Website Overhaul & Local SEO Domination</h3><p class="text-slate-600 mb-6">We transformed a dated site into a sleek, mobile-first experience and implemented a hyper-local SEO strategy. The result: a 200% surge in online bookings and a 70% flood of new, organic traffic in 90 days.</p><div class="flex justify-center lg:justify-start space-x-8"><div><p class="text-3xl font-bold text-gradient">+200%</p><p class="text-sm text-slate-500">Online Reservations</p></div><div><p class="text-3xl font-bold text-gradient">+70%</p><p class="text-sm text-slate-500">Organic Traffic</p></div></div></div>
                 </div>
             </div>
         </section>
@@ -165,7 +199,7 @@
         
         <!-- Testimonials -->
         <section id="testimonials" class="py-20 md:py-28 section-fade-in">
-            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+             <div class="container mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center mb-16"><h2 class="text-3xl md:text-4xl font-bold text-slate-900">Don't Just Take Our Word For It</h2></div>
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                     <div class="bg-white p-8 rounded-xl shadow-lg card-hover-effect"><p class="text-slate-600 mb-6">"NexRNN didn't just build us a website, they built us a lead-generation machine. Their team is professional, creative, and the results speak for themselves. Our leads have doubled!"</p><div class="flex items-center"><img src="https://placehold.co/48x48/e0e7ff/3730a3?text=AS" alt="Avatar for Ankit Sharma" class="w-12 h-12 rounded-full mr-4"><div><p class="font-bold text-slate-900">Ankit Sharma</p><p class="text-sm text-slate-500">Founder, Lucknow Eateries</p></div></div></div>
@@ -190,9 +224,53 @@
             </div>
         </section>
 
+        <!-- FAQ Section -->
+        <section id="faq" class="py-20 md:py-28 bg-white section-fade-in">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16"><h2 class="text-3xl md:text-4xl font-bold text-slate-900">Frequently Asked Questions</h2><p class="mt-4 max-w-2xl mx-auto text-slate-600">Have questions? We've got answers. Here are some of the most common things we're asked.</p></div>
+                <div class="max-w-3xl mx-auto space-y-4">
+                    <div class="border border-slate-200 rounded-lg">
+                        <div class="faq-question cursor-pointer p-6 flex justify-between items-center">
+                            <h3 class="font-semibold text-lg text-slate-800">How long does it take to see results from SEO?</h3>
+                            <i data-lucide="chevron-down" class="faq-icon text-slate-500 w-5 h-5"></i>
+                        </div>
+                        <div class="faq-answer px-6"><div class="pb-6 text-slate-600"><p>SEO is a long-term strategy. While some improvements can be seen in as little as a few weeks, significant results like ranking on the first page for competitive keywords typically take 3-6 months. It depends on your industry, competition, and the current state of your website.</p></div></div>
+                    </div>
+                     <div class="border border-slate-200 rounded-lg">
+                        <div class="faq-question cursor-pointer p-6 flex justify-between items-center">
+                            <h3 class="font-semibold text-lg text-slate-800">Do you work with businesses outside of Lucknow?</h3>
+                            <i data-lucide="chevron-down" class="faq-icon text-slate-500 w-5 h-5"></i>
+                        </div>
+                        <div class="faq-answer px-6"><div class="pb-6 text-slate-600"><p>Absolutely! While we are based in Lucknow and have deep expertise in the local market, we are fully equipped to serve clients across India and globally. Digital marketing knows no borders, and neither do we.</p></div></div>
+                    </div>
+                     <div class="border border-slate-200 rounded-lg">
+                        <div class="faq-question cursor-pointer p-6 flex justify-between items-center">
+                            <h3 class="font-semibold text-lg text-slate-800">What is the process for getting started?</h3>
+                             <i data-lucide="chevron-down" class="faq-icon text-slate-500 w-5 h-5"></i>
+                        </div>
+                        <div class="faq-answer px-6"><div class="pb-6 text-slate-600"><p>Getting started is easy! It begins with a free consultation where we discuss your business goals. From there, we'll develop a custom proposal. Once approved, we kick off with a strategy session and begin executing the plan. The first step is to simply reach out to us via our contact form.</p></div></div>
+                    </div>
+                    <div class="border border-slate-200 rounded-lg">
+                        <div class="faq-question cursor-pointer p-6 flex justify-between items-center">
+                            <h3 class="font-semibold text-lg text-slate-800">What kind of businesses do you work with?</h3>
+                             <i data-lucide="chevron-down" class="faq-icon text-slate-500 w-5 h-5"></i>
+                        </div>
+                        <div class="faq-answer px-6"><div class="pb-6 text-slate-600"><p>We work with a wide range of businesses, from local startups and small businesses to larger established enterprises. Our expertise is particularly strong in helping service-based businesses, retail stores, and e-commerce brands grow their online presence.</p></div></div>
+                    </div>
+                    <div class="border border-slate-200 rounded-lg">
+                        <div class="faq-question cursor-pointer p-6 flex justify-between items-center">
+                            <h3 class="font-semibold text-lg text-slate-800">How much should I spend on digital marketing?</h3>
+                            <i data-lucide="chevron-down" class="faq-icon text-slate-500 w-5 h-5"></i>
+                        </div>
+                        <div class="faq-answer px-6"><div class="pb-6 text-slate-600"><p>The ideal budget varies greatly depending on your business goals, industry, and competition. We recommend starting with our 'Growth' package for a comprehensive approach. During our free consultation, we can analyze your needs and recommend a budget that aligns with your ROI expectations.</p></div></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <!-- Contact Section -->
         <section id="contact" class="py-20 md:py-28 section-fade-in">
-            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+             <div class="container mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center mb-16"><h2 class="text-3xl md:text-4xl font-bold text-slate-900">Ready for Real Growth? Let's Talk.</h2><p class="mt-4 max-w-2xl mx-auto text-slate-600">Your journey to digital excellence starts with a simple conversation. Get a free, no-obligation strategy session tailored for your business.</p></div>
                 <div class="max-w-6xl mx-auto grid lg:grid-cols-2 gap-12 bg-white p-8 md:p-12 rounded-2xl shadow-xl">
                     <div>
@@ -262,6 +340,27 @@
             if (privacyModal) privacyModal.addEventListener('click', (e) => { if (e.target === privacyModal) closeModal(privacyModal); });
             if (termsModal) termsModal.addEventListener('click', (e) => { if (e.target === termsModal) closeModal(termsModal); });
             if (pricingTableModal) pricingTableModal.addEventListener('click', (e) => { if (e.target === pricingTableModal) closeModal(pricingTableModal); });
+
+            // FAQ Accordion
+            const faqQuestions = document.querySelectorAll('.faq-question');
+            faqQuestions.forEach(question => {
+                question.addEventListener('click', () => {
+                    const answer = question.nextElementSibling;
+                    const isOpen = question.classList.contains('open');
+
+                    // Close all other open answers
+                    faqQuestions.forEach(q => {
+                        q.classList.remove('open');
+                        q.nextElementSibling.style.maxHeight = null;
+                    });
+
+                    // If the clicked question was not already open, open it
+                    if (!isOpen) {
+                        question.classList.add('open');
+                        answer.style.maxHeight = answer.scrollHeight + 'px';
+                    }
+                });
+            });
 
             // Intersection Observers
             if ('IntersectionObserver' in window) {
